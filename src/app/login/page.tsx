@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, Suspense } from "react";
 import { useAuth } from "@/components/auth/auth-provider";
 
-export default function LoginPage() {
+function LoginPageInner() {
   const {
     signInWithEmail,
     signInWithGoogle,
@@ -151,5 +151,14 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  // Wrap usage of useSearchParams (a client-side hook) within a Suspense boundary as required by Next.js
+  return (
+    <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+      <LoginPageInner />
+    </Suspense>
   );
 }

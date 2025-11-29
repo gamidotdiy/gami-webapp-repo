@@ -54,11 +54,13 @@ Visit [http://localhost:3000](http://localhost:3000). Use the **Start Building**
 
 1. In Shopify Admin, open **Online Store → Themes → Edit code**.
 2. Paste the snippet generated under `/agents/integrations` (or the example below) into `layout/theme.liquid` right before `</body>`:
+
    ```liquid
    <script src="https://cdn.gami.xyz/plugin.js"
            data-gami-config='{"brand":"Acme","platform":"Shopify","domain":"shop.acme.io","plugin":"rewards","rewards_api":"https://api.acme.io/rewards","sse":"https://mcp.acme.io/api/stream"}'
            async></script>
    ```
+
 3. (Optional) Create a Shopify app block that renders the Universal Wallet iframe and drop it into the product/customer templates to let shoppers view quests + badges inline.
 4. Test by creating a purchase or XP webhook; verify the event appears under **Live Agent Activity** and the storefront widget.
 
@@ -72,6 +74,48 @@ Visit [http://localhost:3000](http://localhost:3000). Use the **Start Building**
 1. Navigate to `/signup`.
 2. Click **Test Sign-Up**. The app will create a throwaway email such as `agent.tester+TIMESTAMP@example.com` in Firebase Auth and immediately sign you in.
 3. The generated credentials are shown in the UI so you can copy/paste them into `/login` if you want to re-test.
+
+## Preparing a clean repo for GitHub
+
+Use this checklist whenever you need to publish the dashboard to a fresh repository:
+
+1. **Remove build/cache artifacts** so the tree is reproducible:
+
+   ```bash
+   rm -rf .next node_modules
+   git clean -fdX
+   ```
+
+2. **Copy environment templates** and leave actual secrets out of git:
+
+   ```bash
+   cp .env.local .env.example  # keep only placeholder values in the copy
+   ```
+
+3. **Reset git metadata** if you want to export into a brand‑new repo:
+
+   ```bash
+   rm -rf .git
+   git init -b main
+   ```
+
+4. **Commit the clean working tree**:
+
+   ```bash
+   npm install
+   npm run lint
+   git add .
+   git commit -m "chore: bootstrap gami agent dashboard"
+   ```
+
+5. **Create the GitHub remote and push**:
+
+   ```bash
+   gh repo create gami-agent-dashboard --public --source=. --remote=origin
+   git push -u origin main
+   ```
+
+> Don’t forget to recreate `.env.local` locally after the push so your Firebase keys stay available for development.
 
 ## Available scripts
 

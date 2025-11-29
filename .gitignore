@@ -30,8 +30,22 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-# .env* # Removed by Orchids to allow .env files
+# env files (never commit secrets to GitHub)
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# build tooling caches
+.turbo
+.swc
+
+# IDE/editor state
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 
 # vercel
 .vercel
