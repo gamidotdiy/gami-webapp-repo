@@ -38,8 +38,8 @@ const TextRevealSection = () => {
                 <Card className="p-6 inline-block">
                   <div className="flex items-center gap-3 mb-4 justify-end">
                     <h3 className="text-xl font-semibold">Phase 1: Foundation</h3>
-                    <div className="bg-[#a3ff12]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Code className="w-5 h-5 text-[#a3ff12]" />
+                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                      <Code className="w-5 h-5 text-[#a855f7]" />
                     </div>
                   </div>
                   <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2 justify-end">
@@ -55,8 +55,8 @@ const TextRevealSection = () => {
               <div className="md:hidden">
                 <Card className="p-6 ml-14">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-[#a3ff12]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Code className="w-5 h-5 text-[#a3ff12]" />
+                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                      <Code className="w-5 h-5 text-[#a855f7]" />
                     </div>
                     <h3 className="text-xl font-semibold">Phase 1: Foundation</h3>
                   </div>
@@ -70,7 +70,7 @@ const TextRevealSection = () => {
                   </ul>
                 </Card>
               </div>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a3ff12] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
+              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
             </div>
           </motion.div>
 
@@ -86,8 +86,8 @@ const TextRevealSection = () => {
               <div className="hidden md:block" />
               <Card className="p-6 ml-14 md:ml-0">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-[#a3ff12]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                    <Users className="w-5 h-5 text-[#a3ff12]" />
+                  <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                    <Users className="w-5 h-5 text-[#a855f7]" />
                   </div>
                   <h3 className="text-xl font-semibold">Phase 2: Scale</h3>
                 </div>
@@ -100,7 +100,7 @@ const TextRevealSection = () => {
                   <li>• Full AI-Personalization Dashboard V2 release</li>
                 </ul>
               </Card>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a3ff12] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
+              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
             </div>
           </motion.div>
 
@@ -117,8 +117,8 @@ const TextRevealSection = () => {
                 <Card className="p-6 inline-block">
                   <div className="flex items-center gap-3 mb-4 justify-end">
                     <h3 className="text-xl font-semibold">Phase 3: Decentralization</h3>
-                    <div className="bg-[#a3ff12]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Vote className="w-5 h-5 text-[#a3ff12]" />
+                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                      <Vote className="w-5 h-5 text-[#a855f7]" />
                     </div>
                   </div>
                   <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2 justify-end">
@@ -134,8 +134,8 @@ const TextRevealSection = () => {
               <div className="md:hidden">
                 <Card className="p-6 ml-14">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-[#a3ff12]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Vote className="w-5 h-5 text-[#a3ff12]" />
+                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                      <Vote className="w-5 h-5 text-[#a855f7]" />
                     </div>
                     <h3 className="text-xl font-semibold">Phase 3: Decentralization</h3>
                   </div>
@@ -149,7 +149,7 @@ const TextRevealSection = () => {
                   </ul>
                 </Card>
               </div>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a3ff12] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
+              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
             </div>
           </motion.div>
         </div>

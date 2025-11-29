@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-
-import { Menu, Pyramid, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
@@ -42,10 +42,10 @@ export const HeroHeader = () => {
               <Link
                 href="/"
                 aria-label="home"
-                className="flex items-center font-semibold gap-2 space-x-2"
+                className="flex items-center font-semibold gap-2"
               >
-                <Pyramid />
-                Gami Protocol
+                <Image src="/gami-logo.png" alt="Gami Protocol" width={32} height={32} className="w-8 h-8" />
+                <span>Gami Protocol</span>
               </Link>
 
               <button
@@ -90,11 +90,11 @@ export const HeroHeader = () => {
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 <Button asChild variant="outline" size="sm">
-                  <Link href="#">
+                  <Link href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer">
                     <span>Read Whitepaper</span>
                   </Link>
                 </Button>
-                <Button asChild size="sm" className="bg-[#a3ff12] hover:bg-[#92e610] text-black">
+                <Button asChild size="sm" className="bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-white">
                   <Link href="#">
                     <span>Start Building</span>
                   </Link>

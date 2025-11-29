@@ -51,9 +51,9 @@ export default function HeroSection() {
                   speedSegment={0.3}
                   delay={0.5}
                   as="p"
-                  className="mt-8 max-w-2xl text-pretty text-gray-200 text-lg"
+                  className="mt-8 max-w-2xl text-pretty text-white/90 text-lg"
                 >
-                  Turn user actions into portable, cross-chain assets. A modular loyalty infrastructure powered by AI Agents and Cosmos EVM.
+                  A revolutionary infrastructure layer designed to unify and elevate digital engagement across the internet. By leveraging a Universal Wallet, Multi-Chain Progression Core Services, AI-Personalisation Dashboard, and robust cross-chain interoperability, the protocol enables users to own and transport their digital identity and assets across any application.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -72,14 +72,14 @@ export default function HeroSection() {
                 >
                   <div
                     key={1}
-                    className="bg-[#a3ff12] rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
+                    className="bg-gradient-to-r from-purple-500 to-cyan-400 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
                   >
                     <Button
                       asChild
                       size="lg"
-                      className="bg-[#a3ff12] hover:bg-[#92e610] text-black rounded-xl px-5 text-base"
+                      className="bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-white rounded-xl px-5 text-base"
                     >
-                      <Link href="#link">
+                      <Link href="/signup">
                         <span className="text-nowrap">Start Building</span>
                       </Link>
                     </Button>
@@ -91,7 +91,7 @@ export default function HeroSection() {
                     variant="outline"
                     className="h-10.5 rounded-xl px-5 text-base"
                   >
-                    <Link href="#link">
+                    <Link href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer">
                       <span className="text-nowrap">Read Whitepaper</span>
                     </Link>
                   </Button>

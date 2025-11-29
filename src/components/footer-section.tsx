@@ -36,39 +36,39 @@ const Footer2 = ({
     {
       title: "Developers",
       links: [
-        { text: "GitHub", url: "#" },
-        { text: "SDK Documentation", url: "#" },
-        { text: "API Reference", url: "#" },
+        { text: "GitHub", url: "https://github.com/gami-protocol" },
+        { text: "SDK Documentation", url: "https://docs.gamiprotocol.com/sdk" },
+        { text: "API Reference", url: "https://docs.gamiprotocol.com/api" },
       ],
     },
     {
       title: "Ecosystem",
       links: [
-        { text: "Grant Program ($10M Fund)", url: "#" },
-        { text: "Bug Bounty", url: "#" },
+        { text: "Grant Program ($10M Fund)", url: "https://www.gamiprotocol.com/grants" },
+        { text: "Bug Bounty", url: "https://www.gamiprotocol.com/security/bug-bounty" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { text: "Whitepaper", url: "#" },
-        { text: "Blog", url: "#" },
-        { text: "Community", url: "#" },
+        { text: "Whitepaper", url: "https://www.gamiprotocol.com/whitepaper.pdf" },
+        { text: "Blog", url: "https://www.gamiprotocol.com/blog" },
+        { text: "Community", url: "https://discord.gg/gamiprotocol" },
       ],
     },
     {
       title: "Company",
       links: [
-        { text: "About", url: "#" },
-        { text: "Careers", url: "#" },
-        { text: "Contact", url: "#" },
+        { text: "About", url: "https://www.gamiprotocol.com/about" },
+        { text: "Careers", url: "https://www.gamiprotocol.com/careers" },
+        { text: "Contact", url: "mailto:hello@gamiprotocol.com" },
       ],
     },
   ],
   copyright = "© 2025 Gami Protocol. The Universal Layer for Digital Engagement.",
   bottomLinks = [
-    { text: "Privacy Policy", url: "#" },
-    { text: "Terms of Service", url: "#" },
+    { text: "Privacy Policy", url: "https://www.gamiprotocol.com/legal/privacy" },
+    { text: "Terms of Service", url: "https://www.gamiprotocol.com/legal/terms" },
   ],
 }: Footer2Props) => {
   return (
@@ -82,6 +82,9 @@ const Footer2 = ({
                 Gami Protocol
               </div>
               <p className="mt-4 font-bold">{tagline}</p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                The Gami Foundation builds the Universal Engagement Layer—multi-chain wallets, agent infrastructure, and loyalty rails trusted by leading commerce and gaming brands.
+              </p>
             </div>
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>

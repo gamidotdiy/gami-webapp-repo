@@ -33,12 +33,12 @@ export default function PricingSection() {
           viewport={{ once: true }}
         >
           <Card className="p-8 relative overflow-hidden">
-            <div className="absolute top-4 right-4 bg-[#a3ff12]/10 px-3 py-1 rounded-full">
-              <span className="text-[#a3ff12] text-xs font-medium">STEP 1</span>
+            <div className="absolute top-4 right-4 bg-[#a855f7]/10 px-3 py-1 rounded-full">
+              <span className="text-[#a855f7] text-xs font-medium">STEP 1</span>
             </div>
             <div className="flex items-start gap-6">
-              <div className="bg-[#a3ff12]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
-                <Award className="w-7 h-7 text-[#a3ff12]" />
+              <div className="bg-[#a855f7]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
+                <Award className="w-7 h-7 text-[#a855f7]" />
               </div>
               <div className="flex-1">
                 <h3 className="text-foreground text-2xl font-semibold mb-2">
@@ -58,7 +58,7 @@ export default function PricingSection() {
 
         {/* Arrow Down */}
         <div className="flex justify-center">
-          <ArrowDown className="w-6 h-6 text-[#a3ff12]" />
+          <ArrowDown className="w-6 h-6 text-[#a855f7]" />
         </div>
 
         {/* Step 2: Gami Points */}
@@ -69,12 +69,12 @@ export default function PricingSection() {
           viewport={{ once: true }}
         >
           <Card className="p-8 relative overflow-hidden">
-            <div className="absolute top-4 right-4 bg-[#a3ff12]/10 px-3 py-1 rounded-full">
-              <span className="text-[#a3ff12] text-xs font-medium">STEP 2</span>
+            <div className="absolute top-4 right-4 bg-[#a855f7]/10 px-3 py-1 rounded-full">
+              <span className="text-[#a855f7] text-xs font-medium">STEP 2</span>
             </div>
             <div className="flex items-start gap-6">
-              <div className="bg-[#a3ff12]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
-                <Coins className="w-7 h-7 text-[#a3ff12]" />
+              <div className="bg-[#a855f7]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
+                <Coins className="w-7 h-7 text-[#a855f7]" />
               </div>
               <div className="flex-1">
                 <h3 className="text-foreground text-2xl font-semibold mb-2">
@@ -94,7 +94,7 @@ export default function PricingSection() {
 
         {/* Arrow Down */}
         <div className="flex justify-center">
-          <ArrowDown className="w-6 h-6 text-[#a3ff12]" />
+          <ArrowDown className="w-6 h-6 text-[#a855f7]" />
         </div>
 
         {/* Step 3: $GAMI Token */}
@@ -104,13 +104,13 @@ export default function PricingSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Card className="p-8 relative overflow-hidden border-[#a3ff12]/20">
-            <div className="absolute top-4 right-4 bg-[#a3ff12]/10 px-3 py-1 rounded-full">
-              <span className="text-[#a3ff12] text-xs font-medium">STEP 3</span>
+          <Card className="p-8 relative overflow-hidden border-[#a855f7]/20">
+            <div className="absolute top-4 right-4 bg-[#a855f7]/10 px-3 py-1 rounded-full">
+              <span className="text-[#a855f7] text-xs font-medium">STEP 3</span>
             </div>
             <div className="flex items-start gap-6">
-              <div className="bg-[#a3ff12]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
-                <DollarSign className="w-7 h-7 text-[#a3ff12]" />
+              <div className="bg-[#a855f7]/10 w-14 h-14 rounded-lg flex items-center justify-center shrink-0">
+                <DollarSign className="w-7 h-7 text-[#a855f7]" />
               </div>
               <div className="flex-1">
                 <h3 className="text-foreground text-2xl font-semibold mb-2">

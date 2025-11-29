@@ -55,10 +55,14 @@ export const LogoIcon = ({ className, uniColor }: { className?: string; uniColor
                     x2="10"
                     y2="20"
                     gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#9B99FE" />
+                    <stop stopColor="#a855f7" />
+                    <stop
+                        offset="0.5"
+                        stopColor="#d946ef"
+                    />
                     <stop
                         offset="1"
-                        stopColor="#2BC8B7"
+                        stopColor="#00d4ff"
                     />
                 </linearGradient>
             </defs>

@@ -36,8 +36,8 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
             >
               <Card className="p-6 h-full flex flex-col">
-                <div className="bg-[#a3ff12]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Wallet className="w-6 h-6 text-[#a3ff12]" />
+                <div className="bg-[#a855f7]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <Wallet className="w-6 h-6 text-[#a855f7]" />
                 </div>
                 <h3 className="text-foreground text-xl font-semibold mb-3">
                   One Identity, Everywhere
@@ -56,8 +56,8 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
             >
               <Card className="p-6 h-full flex flex-col">
-                <div className="bg-[#a3ff12]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Database className="w-6 h-6 text-[#a3ff12]" />
+                <div className="bg-[#a855f7]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <Database className="w-6 h-6 text-[#a855f7]" />
                 </div>
                 <h3 className="text-foreground text-xl font-semibold mb-3">
                   Multi-Chain Progression
@@ -76,8 +76,8 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
             >
               <Card className="p-6 h-full flex flex-col">
-                <div className="bg-[#a3ff12]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="w-6 h-6 text-[#a3ff12]" />
+                <div className="bg-[#a855f7]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <Brain className="w-6 h-6 text-[#a855f7]" />
                 </div>
                 <h3 className="text-foreground text-xl font-semibold mb-3">
                   Intelligent Rewards
@@ -96,8 +96,8 @@ export default function FeaturesSection() {
               viewport={{ once: true }}
             >
               <Card className="p-6 h-full flex flex-col">
-                <div className="bg-[#a3ff12]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-[#a3ff12]" />
+                <div className="bg-[#a855f7]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-[#a855f7]" />
                 </div>
                 <h3 className="text-foreground text-xl font-semibold mb-3">
                   Cosmos Speed, EVM Power
