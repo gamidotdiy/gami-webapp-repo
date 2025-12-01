@@ -77,6 +77,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --neo-border-width: 3px;
+  --neo-border-color: color-mix(in oklch, var(--foreground) 55%, var(--background) 45%);
+  --neo-shadow-soft: 4px 4px 0 color-mix(in oklch, var(--foreground) 26%, black);
+  --neo-shadow-strong: 9px 9px 0 color-mix(in oklch, var(--foreground) 35%, black);
+  --neo-grid-color: color-mix(in oklch, var(--foreground) 9%, transparent);
+  --neo-radius: calc(var(--radius) + 0.9rem);
 }
 
 .dark {
@@ -119,6 +125,12 @@
   }
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+    background-image:
+      linear-gradient(90deg, var(--neo-grid-color) 1px, transparent 1px),
+      linear-gradient(var(--neo-grid-color) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
   }
 }
 
@@ -129,4 +141,91 @@
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+.neo-panel {
+  position: relative;
+  border-radius: var(--neo-radius);
+  border: var(--neo-border-width) solid var(--neo-border-color);
+  background: var(--card);
+  box-shadow: var(--neo-shadow-soft);
+  isolation: isolate;
+}
+
+.neo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0.85rem;
+  border-radius: calc(var(--neo-radius) - 0.7rem);
+  border: 1px dashed color-mix(in oklch, var(--neo-border-color) 50%, transparent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.neo-panel[data-surface="muted"] {
+  background: color-mix(in oklch, var(--card) 82%, var(--accent) 18%);
+}
+
+.neo-panel[data-surface="inverted"] {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.neo-pressable {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-pressable:hover {
+  transform: translate(-0.3rem, -0.3rem);
+  box-shadow: var(--neo-shadow-strong);
+}
+
+.neo-pressable:active {
+  transform: translate(-0.12rem, -0.12rem);
+  box-shadow: var(--neo-shadow-soft);
+}
+
+.neo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: var(--neo-border-width) solid var(--neo-border-color);
+  background: color-mix(in oklch, var(--accent) 70%, var(--background) 30%);
+  box-shadow: 3px 3px 0 color-mix(in oklch, var(--foreground) 22%, black);
+}
+
+.neo-chip[data-tone="ink"] {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.neo-divider {
+  width: 100%;
+  border-top: var(--neo-border-width) solid var(--neo-border-color);
+}
+
+.neo-grid-bg {
+  position: relative;
+}
+
+.neo-grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, var(--neo-grid-color) 1px, transparent 1px),
+    linear-gradient(var(--neo-grid-color) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.neo-border {
+  border: var(--neo-border-width) solid var(--neo-border-color);
 }

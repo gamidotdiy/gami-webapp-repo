@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/ui/text-effect";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { HeroHeader } from "./header";
@@ -21,203 +20,213 @@ const transitionVariants = {
       transition: {
         type: "spring" as const,
         bounce: 0.3,
-        duration: 1.5,
+        duration: 1.2,
       },
     },
   },
 };
+
+const heroChips = [
+  "Cross-Chain Identity",
+  "AI Agents Online",
+  "Universal Wallet",
+];
+
+const heroStats = [
+  {
+    value: "$150B+",
+    label: "Serviceable Market",
+    detail: "Gamification + Loyalty TAM",
+  },
+  {
+    value: "1-2s",
+    label: "Block Finality",
+    detail: "Instant reward issuance",
+  },
+  {
+    value: "4",
+    label: "Autonomous Agents",
+    detail: "Quest • Economy • Security • Rewards",
+  },
+  {
+    value: "100%",
+    label: "Data Sovereignty",
+    detail: "GDPR compliant custody",
+  },
+];
+
+const heroCallouts = [
+  {
+    title: "Universal Wallet",
+    detail: "Portable XP, assets, and identity in one surface",
+  },
+  {
+    title: "Agent Debate",
+    detail: "Risk, Budget, Personalization, Integrity in milliseconds",
+  },
+];
 
 export default function HeroSection() {
   return (
     <>
       <HeroHeader />
       <main className="overflow-hidden">
-        <section>
-          <div className="relative pt-24">
-            <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
-            <div className="mx-auto max-w-5xl px-6">
-              <div className="sm:mx-auto lg:mr-auto lg:mt-0">
-                <TextEffect
-                  preset="fade-in-blur"
-                  speedSegment={0.3}
-                  as="h1"
-                  className="mt-8 max-w-2xl  text-5xl font-medium md:text-6xl lg:mt-16"
-                >
-                  The Universal Layer for Digital Engagement
-                </TextEffect>
-                <TextEffect
-                  per="line"
-                  preset="fade-in-blur"
-                  speedSegment={0.3}
-                  delay={0.5}
-                  as="p"
-                  className="mt-8 max-w-2xl text-pretty text-white/90 text-lg"
-                >
-                  A revolutionary infrastructure layer designed to unify and elevate digital engagement across the internet. By leveraging a Universal Wallet, Multi-Chain Progression Core Services, AI-Personalisation Dashboard, and robust cross-chain interoperability, the protocol enables users to own and transport their digital identity and assets across any application.
-                </TextEffect>
-
-                <AnimatedGroup
-                  variants={{
-                    container: {
-                      visible: {
-                        transition: {
-                          staggerChildren: 0.05,
-                          delayChildren: 0.75,
-                        },
-                      },
+        <section className="relative isolate px-6 pt-32 pb-24 lg:pb-32">
+          <div className="neo-grid-bg pointer-events-none absolute inset-0 -z-10 opacity-70" aria-hidden />
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="space-y-8">
+              <AnimatedGroup
+                variants={{
+                  container: {
+                    visible: {
+                      transition: { staggerChildren: 0.08 },
                     },
-                    ...transitionVariants,
-                  }}
-                  className="mt-12 flex items-center gap-2"
+                  },
+                  ...transitionVariants,
+                }}
+                className="flex flex-wrap items-center gap-3"
+              >
+                {heroChips.map((chip) => (
+                  <span key={chip} className="neo-chip text-[0.6rem]">
+                    {chip}
+                  </span>
+                ))}
+              </AnimatedGroup>
+
+              <TextEffect
+                preset="fade-in-blur"
+                speedSegment={0.3}
+                as="h1"
+                className="text-balance text-4xl font-black leading-tight sm:text-5xl md:text-6xl"
+              >
+                The Universal Neobrutalist Layer for Digital Engagement
+              </TextEffect>
+
+              <div className="neo-panel neo-pressable px-6 py-5 text-base leading-relaxed text-foreground/90">
+                A cohesive design system for wallets, AI agents, and progression services.
+                Bold borders, honest geometry, and vibrant gradients keep the original palette while delivering a tactile neobrutalist experience across every surface.
+              </div>
+
+              <AnimatedGroup
+                variants={{
+                  container: {
+                    visible: {
+                      transition: { staggerChildren: 0.05, delayChildren: 0.15 },
+                    },
+                  },
+                  ...transitionVariants,
+                }}
+                className="flex flex-wrap gap-4"
+              >
+                <Button
+                  key="cta-primary"
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-purple-500 to-cyan-400 text-white hover:from-purple-600 hover:to-cyan-500"
                 >
-                  <div
-                    key={1}
-                    className="bg-gradient-to-r from-purple-500 to-cyan-400 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
-                  >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-white rounded-xl px-5 text-base"
-                    >
-                      <Link href="/signup">
-                        <span className="text-nowrap">Start Building</span>
-                      </Link>
-                    </Button>
+                  <Link href="/signup">
+                    <span className="text-nowrap">Start Building</span>
+                  </Link>
+                </Button>
+                <Button key="cta-secondary" asChild variant="outline" size="lg">
+                  <Link href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer">
+                    <span className="text-nowrap">Read Whitepaper</span>
+                  </Link>
+                </Button>
+              </AnimatedGroup>
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {heroStats.map((stat) => (
+                  <div key={stat.label} className="neo-panel neo-pressable px-5 py-6">
+                    <p className="text-3xl font-black md:text-4xl">{stat.value}</p>
+                    <p className="mt-1 text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                      {stat.label}
+                    </p>
+                    <p className="mt-2 text-sm text-foreground/70">{stat.detail}</p>
                   </div>
-                  <Button
-                    key={2}
-                    asChild
-                    size="lg"
-                    variant="outline"
-                    className="h-10.5 rounded-xl px-5 text-base"
-                  >
-                    <Link href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer">
-                      <span className="text-nowrap">Read Whitepaper</span>
-                    </Link>
-                  </Button>
-                </AnimatedGroup>
+                ))}
               </div>
             </div>
+
             <AnimatedGroup
               variants={{
                 container: {
                   visible: {
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.75,
-                    },
+                    transition: { delayChildren: 0.2 },
                   },
                 },
                 ...transitionVariants,
               }}
             >
-              <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+              <div className="relative">
                 <div
                   aria-hidden
-                  className="bg-linear-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
+                  className="absolute -left-6 -top-6 hidden h-full w-full border-[var(--neo-border-width)] border-dashed border-foreground/25 lg:block"
                 />
-                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-                  <Image
-                    className="bg-background aspect-15/8 relative  rounded-2xl "
-                    src="/app-ui.png"
-                    alt="app screen"
-                    width="2700"
-                    height="1440"
-                  />
+                <div className="neo-panel neo-pressable overflow-hidden px-5 py-6">
+                  <div className="rounded-[1.6rem] border-[var(--neo-border-width)] border-dashed border-foreground/20 bg-background/85 p-3">
+                    <Image
+                      className="rounded-[1.2rem] border-[var(--neo-border-width)] border-foreground/10"
+                      src="/app-ui.png"
+                      alt="Gami Protocol dashboard"
+                      width={2700}
+                      height={1440}
+                    />
+                  </div>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {heroCallouts.map((callout) => (
+                      <div key={callout.title} className="neo-border rounded-2xl bg-background/90 p-4 text-sm font-semibold">
+                        <p className="uppercase text-xs tracking-[0.4em] text-muted-foreground">
+                          {callout.title}
+                        </p>
+                        <p className="mt-2 text-sm font-medium text-foreground/80">{callout.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div
+                  className="neo-panel neo-pressable absolute -right-6 bottom-6 hidden max-w-xs px-5 py-4 lg:block"
+                  data-surface="muted"
+                >
+                  <p className="text-xs font-black uppercase tracking-[0.5em] text-foreground/70">Live Activity</p>
+                  <p className="mt-3 text-2xl font-black text-foreground">+1,284 XP / min</p>
+                  <p className="text-sm text-foreground/70">
+                    Agents issuing quests, rewards, and security actions in real-time.
+                  </p>
                 </div>
               </div>
             </AnimatedGroup>
           </div>
         </section>
-        <section className="bg-background pb-16 pt-16 md:pb-32">
-          <div className="group relative m-auto max-w-5xl px-6">
-            <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
-              <Link
-                href="/"
-                className="block text-sm duration-150 hover:opacity-75"
-              >
-                <span>
-                  {" "}
-                  Building the future of digital engagement with partners like:
-                </span>
 
-                <ChevronRight className="ml-1 inline-block size-3" />
-              </Link>
-            </div>
-            <div className="group-hover:blur-xs mx-auto mt-12 grid max-w-2xl grid-cols-4 gap-x-12 gap-y-8 transition-all duration-500 group-hover:opacity-50 sm:gap-x-16 sm:gap-y-14">
-              <div className="flex">
-                <img
-                  className="mx-auto h-5 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/nvidia.svg"
-                  alt="Nvidia Logo"
-                  height="20"
-                  width="auto"
-                />
-              </div>
-
-              <div className="flex">
-                <img
-                  className="mx-auto h-4 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/column.svg"
-                  alt="Column Logo"
-                  height="16"
-                  width="auto"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto h-4 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/github.svg"
-                  alt="GitHub Logo"
-                  height="16"
-                  width="auto"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto h-5 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/nike.svg"
-                  alt="Nike Logo"
-                  height="20"
-                  width="auto"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto h-5 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
-                  alt="Lemon Squeezy Logo"
-                  height="20"
-                  width="auto"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto h-4 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/laravel.svg"
-                  alt="Laravel Logo"
-                  height="16"
-                  width="auto"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto h-7 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/lilly.svg"
-                  alt="Lilly Logo"
-                  height="28"
-                  width="auto"
-                />
-              </div>
-
-              <div className="flex">
-                <img
-                  className="mx-auto h-6 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/openai.svg"
-                  alt="OpenAI Logo"
-                  height="24"
-                  width="auto"
-                />
+        <section className="px-6 pb-24">
+          <div className="mx-auto max-w-5xl">
+            <div className="neo-panel neo-pressable px-6 py-8 text-center">
+              <p className="text-xs font-black uppercase tracking-[0.55em] text-muted-foreground">
+                Trusted by teams shipping loyalty, commerce, and gaming ecosystems
+              </p>
+              <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+                {[
+                  { src: "https://html.tailus.io/blocks/customers/nvidia.svg", alt: "Nvidia" },
+                  { src: "https://html.tailus.io/blocks/customers/column.svg", alt: "Column" },
+                  { src: "https://html.tailus.io/blocks/customers/github.svg", alt: "GitHub" },
+                  { src: "https://html.tailus.io/blocks/customers/nike.svg", alt: "Nike" },
+                  { src: "https://html.tailus.io/blocks/customers/lemonsqueezy.svg", alt: "Lemon Squeezy" },
+                  { src: "https://html.tailus.io/blocks/customers/laravel.svg", alt: "Laravel" },
+                  { src: "https://html.tailus.io/blocks/customers/lilly.svg", alt: "Lilly" },
+                  { src: "https://html.tailus.io/blocks/customers/openai.svg", alt: "OpenAI" },
+                ].map((logo) => (
+                  <div
+                    key={logo.alt}
+                    className="neo-border flex h-16 items-center justify-center rounded-2xl bg-white/90 p-3 dark:bg-foreground/5"
+                  >
+                    <img
+                      className="mx-auto max-h-6 w-auto object-contain dark:invert"
+                      src={logo.src}
+                      alt={`${logo.alt} Logo`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

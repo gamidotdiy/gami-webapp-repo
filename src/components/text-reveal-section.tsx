@@ -3,155 +3,100 @@ import { motion } from "motion/react";
 import { Card } from "./ui/card";
 import { Calendar, Users, Code, Vote } from "lucide-react";
 
+const phases = [
+  {
+    title: "Phase 1: Foundation",
+    timeframe: "Q4 2025 - Q2 2026",
+    bullets: [
+      "Launch of Universal Wallet MVP & SDK v1.0",
+      "Onboard 50+ early developer partners",
+    ],
+    Icon: Code,
+    surface: "muted",
+  },
+  {
+    title: "Phase 2: Scale",
+    timeframe: "Q3 2026",
+    bullets: [
+      "$GAMI TGE & staking pools online",
+      "AI-Personalization Dashboard v2 released",
+    ],
+    Icon: Users,
+  },
+  {
+    title: "Phase 3: Decentralization",
+    timeframe: "2027+",
+    bullets: [
+      "Transition to DAO governance",
+      "Protocol becomes fully open-source",
+    ],
+    Icon: Vote,
+    surface: "muted",
+  },
+];
+
 const TextRevealSection = () => {
   return (
-    <section id="roadmap" className="bg-background py-24">
-      <div className="container max-w-5xl mx-auto px-6">
+    <section id="roadmap" className="px-6 pb-32">
+      <div className="mx-auto max-w-5xl">
         <motion.h2
           initial={{ opacity: 0, filter: "blur(4px)" }}
           whileInView={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-foreground text-balance text-3xl font-semibold md:text-4xl text-center mb-4"
+          className="text-balance text-center text-3xl font-semibold md:text-4xl"
         >
-          <span className="text-muted-foreground">The Roadmap:</span>{" "}
-          Our Journey
+          <span className="text-muted-foreground">The Roadmap:</span> Our Journey
         </motion.h2>
-        <p className="text-muted-foreground text-center text-base max-w-2xl mx-auto mb-16">
-          Building the future of digital engagement, one milestone at a time
+        <p className="text-muted-foreground mx-auto mt-4 max-w-2xl text-center text-base">
+          Neon borders meet honest typography—milestones rendered with brutal clarity.
         </p>
 
-        <div className="relative max-w-3xl mx-auto">
-          {/* Timeline line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border md:left-1/2 md:-translate-x-1/2" />
-
-          {/* Phase 1 */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="relative mb-12 md:mb-16"
-          >
-            <div className="flex items-start gap-6 md:grid md:grid-cols-2 md:gap-8">
-              <div className="hidden md:block text-right">
-                <Card className="p-6 inline-block">
-                  <div className="flex items-center gap-3 mb-4 justify-end">
-                    <h3 className="text-xl font-semibold">Phase 1: Foundation</h3>
-                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Code className="w-5 h-5 text-[#a855f7]" />
+        <div className="relative mt-16">
+          <div className="absolute left-[1.1rem] top-0 bottom-0 border-l-[var(--neo-border-width)] border-dashed border-foreground/25" />
+          <ol className="space-y-10">
+            {phases.map(({ title, timeframe, bullets, Icon, surface }, index) => (
+              <li key={title} className="relative">
+                <span className="neo-border absolute left-0 top-8 flex h-10 w-10 items-center justify-center rounded-full bg-background text-xs font-black">
+                  P{index + 1}
+                </span>
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card
+                    data-surface={surface}
+                    className="p-6 pt-8 md:ml-16 md:p-8"
+                  >
+                    <div className="flex flex-col gap-6 md:flex-row md:items-start">
+                      <div className="neo-border flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent/30">
+                        <Icon className="h-5 w-5 text-[#a855f7]" />
+                      </div>
+                      <div className="flex-1 space-y-4">
+                        <div>
+                          <h3 className="text-xl font-black">{title}</h3>
+                          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-dashed border-foreground/30 px-3 py-1 text-xs font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                            <Calendar className="h-3.5 w-3.5" />
+                            {timeframe}
+                          </div>
+                        </div>
+                        <ul className="space-y-2 text-sm text-foreground/80">
+                          {bullets.map((item) => (
+                            <li key={item} className="flex items-start gap-2">
+                              <span className="mt-1 block h-2 w-2 rounded-sm bg-foreground" aria-hidden />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2 justify-end">
-                    <Calendar className="w-4 h-4" />
-                    <span>Q4 2025 - Q2 2026</span>
-                  </div>
-                  <ul className="space-y-2 text-sm text-muted-foreground text-right">
-                    <li>• Launch of Universal Wallet MVP & SDK v1.0</li>
-                    <li>• Onboarding 50+ early developer partners</li>
-                  </ul>
-                </Card>
-              </div>
-              <div className="md:hidden">
-                <Card className="p-6 ml-14">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Code className="w-5 h-5 text-[#a855f7]" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Phase 1: Foundation</h3>
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Q4 2025 - Q2 2026</span>
-                  </div>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Launch of Universal Wallet MVP & SDK v1.0</li>
-                    <li>• Onboarding 50+ early developer partners</li>
-                  </ul>
-                </Card>
-              </div>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
-            </div>
-          </motion.div>
-
-          {/* Phase 2 */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative mb-12 md:mb-16"
-          >
-            <div className="flex items-start gap-6 md:grid md:grid-cols-2 md:gap-8">
-              <div className="hidden md:block" />
-              <Card className="p-6 ml-14 md:ml-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                    <Users className="w-5 h-5 text-[#a855f7]" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Phase 2: Scale</h3>
-                </div>
-                <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>Q3 2026</span>
-                </div>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• $GAMI TGE (Token Generation Event) & Staking Pools Live</li>
-                  <li>• Full AI-Personalization Dashboard V2 release</li>
-                </ul>
-              </Card>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
-            </div>
-          </motion.div>
-
-          {/* Phase 3 */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="flex items-start gap-6 md:grid md:grid-cols-2 md:gap-8">
-              <div className="hidden md:block text-right">
-                <Card className="p-6 inline-block">
-                  <div className="flex items-center gap-3 mb-4 justify-end">
-                    <h3 className="text-xl font-semibold">Phase 3: Decentralization</h3>
-                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Vote className="w-5 h-5 text-[#a855f7]" />
-                    </div>
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2 justify-end">
-                    <Calendar className="w-4 h-4" />
-                    <span>2027+</span>
-                  </div>
-                  <ul className="space-y-2 text-sm text-muted-foreground text-right">
-                    <li>• Transition to DAO Governance</li>
-                    <li>• Protocol becomes fully open-source</li>
-                  </ul>
-                </Card>
-              </div>
-              <div className="md:hidden">
-                <Card className="p-6 ml-14">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-[#a855f7]/10 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
-                      <Vote className="w-5 h-5 text-[#a855f7]" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Phase 3: Decentralization</h3>
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-4 flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>2027+</span>
-                  </div>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Transition to DAO Governance</li>
-                    <li>• Protocol becomes fully open-source</li>
-                  </ul>
-                </Card>
-              </div>
-              <div className="absolute left-6 top-2 w-3 h-3 rounded-full bg-[#a855f7] border-4 border-background md:left-1/2 md:-translate-x-1/2" />
-            </div>
-          </motion.div>
+                  </Card>
+                </motion.div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
