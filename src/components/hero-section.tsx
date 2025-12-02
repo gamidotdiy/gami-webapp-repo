@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/ui/text-effect";
 import { AnimatedGroup } from "@/components/ui/animated-group";
+import { WaitlistForm } from "@/components/waitlist-form";
 import { HeroHeader } from "./header";
 
 const transitionVariants = {
@@ -99,7 +100,7 @@ export default function HeroSection() {
                 as="h1"
                 className="text-balance text-4xl font-black leading-tight sm:text-5xl md:text-6xl"
               >
-                The Universal Neobrutalist Layer for Digital Engagement
+                The Universal Layer for Digital Engagement
               </TextEffect>
 
               <div className="neo-panel neo-pressable px-6 py-5 text-base leading-relaxed text-foreground/90">
@@ -135,6 +136,8 @@ export default function HeroSection() {
                 </Button>
               </AnimatedGroup>
 
+              <WaitlistForm />
+
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="neo-panel neo-pressable px-5 py-6">
@@ -167,7 +170,7 @@ export default function HeroSection() {
                   <div className="rounded-[1.6rem] border-[var(--neo-border-width)] border-dashed border-foreground/20 bg-background/85 p-3">
                     <Image
                       className="rounded-[1.2rem] border-[var(--neo-border-width)] border-foreground/10"
-                      src="/app-ui.png"
+                      src="/hero-dashboard.png"
                       alt="Gami Protocol dashboard"
                       width={2700}
                       height={1440}

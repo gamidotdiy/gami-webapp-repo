@@ -4,6 +4,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { useAuth } from "@/components/auth/auth-provider";
+import { Button } from "@/components/ui/button";
+
+const readinessMetrics = [
+  { label: "Agents Ready", value: "04" },
+  { label: "Quest Blueprints", value: "32" },
+  { label: "Wallets Simulated", value: "1.2K" },
+];
+
+const proofPoints = [
+  "Risk, Budget, and Integrity agents debate every change in under 2s.",
+  "Universal wallet keeps XP, tokens, and fiat rewards perfectly in sync.",
+  "Stripe-ready metering ensures finance can reconcile usage instantly.",
+];
 
 export default function SignupPage() {
   const {
@@ -78,55 +91,66 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F7FE] px-4 py-12">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 rounded-[40px] bg-white p-8 shadow-[0px_45px_90px_rgba(112,144,176,0.35)] md:grid-cols-2 md:p-12">
-        <div className="rounded-[30px] bg-gradient-to-br from-[#4318FF] to-[#6AD2FF] p-10 text-white">
-          <p className="text-sm uppercase tracking-[0.4em] text-white/70">Start Here</p>
-          <h1 className="mt-6 text-4xl font-semibold">Create Your Agent Identity</h1>
-          <p className="mt-4 text-white/80">
-            Generate supervised access before handing missions to Quest, Economy, and Security agents across the network.
+    <div className="min-h-screen px-6 py-16">
+      <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <section className="neo-panel neo-pressable space-y-6 p-8 lg:p-10" data-surface="muted">
+          <p className="neo-chip" data-tone="ink">
+            Provision Access
           </p>
-          <div className="mt-10 space-y-5 text-sm uppercase tracking-[0.25em] text-white/70">
-            <p>Nodes Linked · 32</p>
-            <p>AI Assistants · 6</p>
-            <p>Runbooks Verified · 18</p>
-          </div>
-        </div>
-
-        <div className="flex flex-col justify-center">
-          <div className="mb-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#A3AED0]">
-              Sign Up First
+          <div>
+            <h1 className="text-4xl font-black leading-tight sm:text-5xl">Spin up your Operator Identity</h1>
+            <p className="mt-4 text-base text-foreground/85">
+              Create supervisor credentials before assigning quests to Economy, Rewards, and Security agents across the engagement layer.
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-[#2B3674]">
-              Provision Supervisor Credentials
-            </h2>
-            <p className="mt-2 text-sm text-[#A3AED0]">
-              Already verified? <Link href="/login" className="font-semibold text-[#4318FF]">Sign in instead</Link>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {readinessMetrics.map((metric) => (
+              <div key={metric.label} className="neo-panel neo-pressable px-4 py-5 text-center">
+                <p className="text-3xl font-black">{metric.value}</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-[0.4em] text-muted-foreground">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-[1.5rem] border-[var(--neo-border-width)] border-dashed border-foreground/35 p-6 text-sm text-foreground/80">
+            <p className="font-semibold uppercase tracking-[0.4em] text-muted-foreground">Agent Guarantees</p>
+            <ul className="mt-4 space-y-3">
+              {proofPoints.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span className="mt-[0.35rem] size-2 rounded-full bg-foreground" aria-hidden />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="neo-panel neo-pressable p-8 lg:p-10">
+          <div className="mb-8">
+            <p className="text-[0.65rem] font-black uppercase tracking-[0.45em] text-muted-foreground">
+              Sign Up
+            </p>
+            <h2 className="mt-3 text-3xl font-black text-foreground">Provision Supervisor Credentials</h2>
+            <p className="mt-2 text-sm text-foreground/70">
+              Already verified?{" "}
+              <Link href="/login" className="font-semibold text-foreground">
+                Sign in instead
+              </Link>
             </p>
           </div>
 
           <div className="mb-6 grid gap-3 md:grid-cols-2">
-            <button
-              type="button"
-              onClick={() => handleOAuth("google")}
-              disabled={status !== "idle"}
-              className="rounded-full border border-[#E4E9FB] px-4 py-2 text-sm font-semibold text-[#2B3674] shadow-[0px_10px_25px_rgba(160,174,211,0.25)] disabled:opacity-60"
-            >
+            <Button type="button" variant="outline" onClick={() => handleOAuth("google")} disabled={status !== "idle"}>
               Continue with Google
-            </button>
-            <button
-              type="button"
-              onClick={() => handleOAuth("github")}
-              disabled={status !== "idle"}
-              className="rounded-full border border-[#E4E9FB] px-4 py-2 text-sm font-semibold text-[#2B3674] shadow-[0px_10px_25px_rgba(160,174,211,0.25)] disabled:opacity-60"
-            >
+            </Button>
+            <Button type="button" variant="outline" onClick={() => handleOAuth("github")} disabled={status !== "idle"}>
               Continue with GitHub
-            </button>
+            </Button>
           </div>
 
           <form className="space-y-5" onSubmit={handleEmailSignup}>
-            <label className="block text-sm font-semibold text-[#2B3674]">
+            <label className="block text-sm font-semibold text-foreground">
               Work Email
               <input
                 type="email"
@@ -135,10 +159,10 @@ export default function SignupPage() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="agent@gami.xyz"
-                className="mt-2 w-full rounded-full border border-transparent bg-[#F4F7FE] px-5 py-3 text-[#2B3674] placeholder:text-[#A3AED0] focus:border-[#4318FF] focus:outline-none"
+                className="neo-border mt-2 w-full rounded-[calc(var(--radius)+0.4rem)] bg-background px-5 py-3 text-base font-semibold text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/30"
               />
             </label>
-            <label className="block text-sm font-semibold text-[#2B3674]">
+            <label className="block text-sm font-semibold text-foreground">
               Create Password
               <input
                 type="password"
@@ -147,10 +171,10 @@ export default function SignupPage() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 placeholder="********"
-                className="mt-2 w-full rounded-full border border-transparent bg-[#F4F7FE] px-5 py-3 text-[#2B3674] placeholder:text-[#A3AED0] focus:border-[#4318FF] focus:outline-none"
+                className="neo-border mt-2 w-full rounded-[calc(var(--radius)+0.4rem)] bg-background px-5 py-3 text-base font-semibold text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/30"
               />
             </label>
-            <label className="block text-sm font-semibold text-[#2B3674]">
+            <label className="block text-sm font-semibold text-foreground">
               Confirm Password
               <input
                 type="password"
@@ -159,54 +183,51 @@ export default function SignupPage() {
                 value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 placeholder="********"
-                className="mt-2 w-full rounded-full border border-transparent bg-[#F4F7FE] px-5 py-3 text-[#2B3674] placeholder:text-[#A3AED0] focus:border-[#4318FF] focus:outline-none"
+                className="neo-border mt-2 w-full rounded-[calc(var(--radius)+0.4rem)] bg-background px-5 py-3 text-base font-semibold text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground/30"
               />
             </label>
             {error && (
-              <p className="text-sm font-medium text-[#D52941]" role="alert">
+              <p className="text-sm font-medium text-destructive" role="alert">
                 {error}
               </p>
             )}
-            <button
+            <Button
               type="submit"
               disabled={status !== "idle"}
-              className="w-full rounded-full bg-[#4318FF] py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-[0px_25px_45px_rgba(67,24,255,0.4)] disabled:opacity-60"
+              className="w-full bg-gradient-to-r from-purple-500 to-cyan-400 text-white hover:from-purple-600 hover:to-cyan-500"
             >
               {status === "submitting" ? "Creating..." : "Create Account"}
-            </button>
+            </Button>
           </form>
 
-          <div className="mt-8 rounded-[24px] bg-[#F4F7FE] p-5 text-sm text-[#2B3674]">
-            <div className="flex items-center justify-between">
+          <div className="mt-8 rounded-[1.4rem] border-[var(--neo-border-width)] border-dashed border-foreground/30 p-5 text-sm text-foreground/80">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#A3AED0]">
-                  Test Run
-                </p>
-                <p className="text-base font-semibold text-[#2B3674]">
-                  Generate a Fake Email First
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-muted-foreground">Need sandbox data?</p>
+                <p className="mt-1 text-base font-semibold text-foreground">Generate a disposable test agent.</p>
               </div>
-              <button
+              <Button
                 type="button"
+                variant="outline"
                 onClick={handleTestSignup}
                 disabled={status === "testing"}
-                className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#4318FF] shadow-[0px_15px_35px_rgba(67,24,255,0.2)] disabled:opacity-60"
+                className="w-full sm:w-auto"
               >
                 {status === "testing" ? "Provisioning..." : "Test Sign-Up"}
-              </button>
+              </Button>
             </div>
             {testAccount && (
-              <div className="mt-4 rounded-2xl bg-white p-4 text-xs text-[#2B3674]">
-                <p className="font-semibold text-[#4318FF]">Demo Credentials</p>
+              <div className="mt-4 rounded-[calc(var(--radius)+0.6rem)] bg-background p-4 text-xs text-foreground/80">
+                <p className="font-semibold text-foreground">Demo Credentials</p>
                 <p className="mt-2">Email: {testAccount.email}</p>
                 <p>Password: {testAccount.password}</p>
-                <p className="mt-2 text-[#A3AED0]">
-                  Stored securely in Firebase Auth — you can use these details to login immediately.
+                <p className="mt-2 text-muted-foreground">
+                  Stored securely in Firebase Auth — use these credentials to explore the agent console immediately.
                 </p>
               </div>
             )}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
