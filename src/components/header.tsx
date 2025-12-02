@@ -48,8 +48,8 @@ export const HeroHeader = () => {
                 <Image
                   src="/gami-logo.png"
                   alt="Gami Protocol"
-                  width={40}
-                  height={40}
+                  width={100}
+                  height={100}
                   className="h-10 w-10 rounded-xl border-[3px] border-foreground/20 bg-white p-1"
                 />
                 <span className="text-base tracking-[0.3em] text-foreground">Gami Protocol</span>
@@ -103,7 +103,7 @@ export const HeroHeader = () => {
                   </Link>
                 </Button>
                 <Button asChild size="sm" className="bg-gradient-to-r from-purple-500 to-cyan-400 hover:from-purple-600 hover:to-cyan-500 text-white">
-                  <Link href="#">
+                  <Link href="/signup">
                     <span>Start Building</span>
                   </Link>
                 </Button>

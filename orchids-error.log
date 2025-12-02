@@ -1,0 +1,14 @@
+
+> nr-clean-ai-saas@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Warning: Found multiple lockfiles. Selecting /Users/marcusmattus/pnpm-lock.yaml.
+   Consider removing the lockfiles at:
+   * /Users/marcusmattus/Gami_Protocol/gami-protocol-universal-engagement-layer/package-lock.json
+
+   ▲ Next.js 15.4.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.17:3000
+
+ ✓ Starting...
+ ✓ Ready in 1610ms

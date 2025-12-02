@@ -103,8 +103,8 @@ export default function HeroSection() {
               </TextEffect>
 
               <div className="neo-panel neo-pressable px-6 py-5 text-base leading-relaxed text-foreground/90">
-                A cohesive design system for wallets, AI agents, and progression services.
-                Bold borders, honest geometry, and vibrant gradients keep the original palette while delivering a tactile neobrutalist experience across every surface.
+                Gami Protocol is the first cross-chain engagement layer enabling developers to build
+                gamified experiences with AI-driven agents, universal wallets, and real-time reward issuance.
               </div>
 
               <AnimatedGroup

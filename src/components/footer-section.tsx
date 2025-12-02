@@ -26,7 +26,7 @@ interface Footer2Props {
 
 const Footer2 = ({
   logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
+    src: "/gami-logo.png",
     alt: "Gami Protocol logo",
     title: "Gami Protocol",
     url: "https://www.gamiprotocol.com",
