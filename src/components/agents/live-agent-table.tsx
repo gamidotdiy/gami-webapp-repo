@@ -91,11 +91,7 @@ function describeAction(key: AgentKey, payload: Record<string, unknown>): string
           ? (payload["difficulty_rating"] as string)
           : undefined;
       if (!questId && !wallet && !difficulty) return agentMeta.quest.fallbackAction;
-      return [
-        questId ? `Quest ${questId}` : null,
-        difficulty ? difficulty : null,
-        wallet ? `for ${wallet}` : null,
-      ]
+      return [questId ? `Quest ${questId}` : null, difficulty ?? null, wallet ? `for ${wallet}` : null]
         .filter(Boolean)
         .join(" · ");
     }
@@ -154,12 +150,7 @@ function describeAction(key: AgentKey, payload: Record<string, unknown>): string
       if (!wallet && !badge && xpAwarded === undefined) {
         return agentMeta.rewards.fallbackAction;
       }
-      return [
-        badge ?? "Badge issued",
-        wallet ? `to ${wallet}` : null,
-        xpAwarded !== undefined ? `+${xpAwarded} XP` : null,
-        theme,
-      ]
+      return [badge ?? "Badge issued", wallet ? `to ${wallet}` : null, xpAwarded !== undefined ? `+${xpAwarded} XP` : null, theme]
         .filter(Boolean)
         .join(" · ");
     }
@@ -167,6 +158,12 @@ function describeAction(key: AgentKey, payload: Record<string, unknown>): string
       return "";
   }
 }
+
+const statusToneStyles: Record<AgentRow["statusTone"], string> = {
+  positive: "border border-emerald-500 bg-emerald-100/70 text-emerald-900",
+  warning: "border border-amber-500 bg-amber-100/70 text-amber-900",
+  idle: "border border-rose-500 bg-rose-100/70 text-rose-900",
+};
 
 export function LiveAgentTable() {
   const { events, error, isConnected } = useAgentStream();
@@ -213,42 +210,38 @@ export function LiveAgentTable() {
     });
   }, [events, now]);
 
-  const statusChipClass = (tone: AgentRow["statusTone"]) => {
-    if (tone === "positive") return "bg-[#EAFBF5] text-[#1BA97F]";
-    if (tone === "warning") return "bg-[#FFF5E6] text-[#D97706]";
-    return "bg-[#FDEEF3] text-[#D52941]";
-  };
-
   return (
     <HorizonCard title="Live Agent Activity" subtitle="Realtime telemetry">
-      <div className="mb-4 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#A3AED0]">
-        <span className="flex items-center gap-2 text-[#2B3674]">
-          <Radio className="h-4 w-4 text-[#4318FF]" />
-          {isConnected ? "Streaming from @Gami_Agents" : "Connecting to @Gami_Agents"}
+      <div className="mb-4 flex flex-wrap items-center gap-3 text-xs font-black uppercase tracking-[0.35em] text-muted-foreground">
+        <span className="flex items-center gap-2 text-foreground">
+          <Radio className="h-4 w-4 text-foreground" />
+          {isConnected ? "Streaming @Gami_Agents" : "Connecting to stream"}
         </span>
-        {error && <span className="text-[#D52941]">{error}</span>}
+        {error && <span className="text-destructive">{error}</span>}
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] text-left text-sm">
+        <table className="w-full min-w-[640px] text-sm">
           <thead>
-            <tr className="text-xs uppercase tracking-[0.25em] text-[#A3AED0]">
-              <th className="pb-3">Agent Name</th>
-              <th className="pb-3">Status</th>
-              <th className="pb-3">Last Signal</th>
-              <th className="pb-3">Last Action</th>
+            <tr className="text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground">
+              <th className="pb-3 text-left">Agent Name</th>
+              <th className="pb-3 text-left">Status</th>
+              <th className="pb-3 text-left">Last Signal</th>
+              <th className="pb-3 text-left">Last Action</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.key} className="border-t border-[#EEF2FF]">
-                <td className="py-4 font-semibold text-[#2B3674]">{row.name}</td>
+              <tr key={row.key} className="border-t border-foreground/10">
+                <td className="py-4 font-semibold text-foreground">{row.name}</td>
                 <td className="py-4">
-                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusChipClass(row.statusTone)}`}>
+                  <span
+                    className={`inline-flex items-center justify-center gap-2 rounded-full px-3 py-1 text-[0.6rem] font-black uppercase tracking-[0.35em] ${statusToneStyles[row.statusTone]}`}
+                  >
                     {row.statusLabel}
                   </span>
                 </td>
-                <td className="py-4 text-[#2B3674]">{row.lastSignal}</td>
-                <td className="py-4 text-[#A3AED0]">{row.action}</td>
+                <td className="py-4 text-foreground/80">{row.lastSignal}</td>
+                <td className="py-4 text-muted-foreground">{row.action}</td>
               </tr>
             ))}
           </tbody>

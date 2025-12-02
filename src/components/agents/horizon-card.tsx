@@ -19,7 +19,7 @@ export function HorizonCard({
   return (
     <div
       className={cn(
-        "rounded-[20px] bg-white p-6 shadow-[0px_18px_40px_rgba(112,144,176,0.18)]",
+        "neo-panel neo-pressable p-6",
         className,
       )}
     >
@@ -27,12 +27,12 @@ export function HorizonCard({
         <header className="mb-5 flex flex-wrap items-start justify-between gap-4">
           <div>
             {subtitle && (
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#A3AED0]">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground">
                 {subtitle}
               </p>
             )}
             {title && (
-              <h3 className="mt-1 text-lg font-semibold text-[#2B3674]">{title}</h3>
+              <h3 className="mt-1 text-lg font-semibold text-foreground">{title}</h3>
             )}
           </div>
           {action}
