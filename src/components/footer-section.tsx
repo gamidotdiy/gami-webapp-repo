@@ -29,7 +29,7 @@ const Footer2 = ({
     src: "/gami-logo.png",
     alt: "Gami Protocol logo",
     title: "Gami Protocol",
-    url: "https://www.gamiprotocol.com",
+    url: "https://www.gamiprotocol.xyz/",
   },
   tagline = "Built by Gami Foundation.",
   menuItems = [
@@ -37,8 +37,8 @@ const Footer2 = ({
       title: "Developers",
       links: [
         { text: "GitHub", url: "https://github.com/gami-protocol" },
-        { text: "SDK Documentation", url: "https://docs.gamiprotocol.com/sdk" },
-        { text: "API Reference", url: "https://docs.gamiprotocol.com/api" },
+        { text: "SDK Documentation", url: "https://docs.gamiprotocol.xyz/sdk" },
+        { text: "API Reference", url: "https://docs.gamiprotocol.xyz/api" },
       ],
     },
     {
