@@ -37,7 +37,7 @@ const Footer2 = ({
     {
       title: "Developers",
       links: [
-        { text: "GitHub", url: "https://github.com/gami-protocol" },
+        { text: "GitHub", url: "https://github.com/Gami-Protocol" },
         { text: "SDK Documentation", url: "https://docs.gamiprotocol.xyz/sdk" },
         { text: "API Reference", url: "https://docs.gamiprotocol.xyz/api" },
       ],
@@ -79,9 +79,7 @@ const Footer2 = ({
           <div className="flex flex-col gap-12 lg:flex-row">
             <div className="lg:w-1/3">
               <a href={logo.url} className="inline-flex items-center gap-3 text-lg font-black uppercase tracking-[0.4em]">
-                <span className="neo-border flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/40">
-                  <Pyramid className="h-6 w-6" />
-                </span>
+                <img src={logo.src} alt={logo.alt} className="h-12 w-12" />
                 {logo.title}
               </a>
               <p className="mt-4 text-xl font-black">{tagline}</p>
