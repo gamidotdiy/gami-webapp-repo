@@ -68,6 +68,17 @@ function LoginPageInner() {
 
   return (
     <div className="min-h-screen px-6 py-16">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 flex items-center justify-between gap-4">
+          <Link
+            href="/"
+            className="neo-chip text-[0.58rem] font-black uppercase tracking-[0.4em] text-foreground"
+          >
+            ← Back
+          </Link>
+          <p className="text-xs font-semibold text-muted-foreground">Supervisor access only</p>
+        </div>
+      </div>
       <div className="mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <section className="neo-panel neo-pressable space-y-6 p-8 lg:p-10" data-surface="muted">
           <p className="neo-chip" data-tone="ink">

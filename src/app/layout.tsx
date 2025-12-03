@@ -5,6 +5,7 @@ import VisualEditsMessenger from "../visual-edits/VisualEditsMessenger";
 import ErrorReporter from "@/components/ErrorReporter";
 import Script from "next/script";
 import { AuthProvider } from "@/components/auth/auth-provider";
+import { ThemeWatcher } from "@/components/theme-watcher";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -15,6 +16,23 @@ const interMono = Inter({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const themeBootstrapScript = `
+(function() {
+  try {
+    var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    var root = document.documentElement;
+    var applyTheme = function(isDark) {
+      root.classList.toggle('dark', isDark);
+      root.dataset.theme = isDark ? 'dark' : 'light';
+      root.style.setProperty('color-scheme', isDark ? 'dark' : 'light');
+    };
+    applyTheme(mediaQuery.matches);
+  } catch (error) {
+    console.warn('theme bootstrap failed', error);
+  }
+})();
+`;
 
 export const metadata: Metadata = {
   title: "Gami Protocol - Universal Engagement Layer",
@@ -28,9 +46,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeBootstrapScript }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${interMono.variable} antialiased`}
       >
+        <ThemeWatcher />
         <ErrorReporter />
         <Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
