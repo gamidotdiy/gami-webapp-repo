@@ -1,4 +1,5 @@
 import { Pyramid } from "lucide-react";
+import React from "react";
 
 interface MenuItem {
   title: string;

@@ -41,7 +41,7 @@ export const HeroHeader = () => {
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
               <Link
-                href="/"
+                href="/home"
                 aria-label="home"
                 className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.35em]"
               >
@@ -50,7 +50,7 @@ export const HeroHeader = () => {
                   alt="Gami Protocol"
                   width={100}
                   height={100}
-                  className="h-10 w-10 rounded-xl border-[3px] border-foreground/20 bg-white p-1"
+                  className="h-11 w-11 rounded-xl border-[3px] border-foreground/50 bg-white p-1 object-contain"
                 />
                 <span className="text-base tracking-[0.3em] text-foreground">Gami Protocol</span>
               </Link>
