@@ -206,28 +206,27 @@ export default function HeroSection() {
           <div className="mx-auto max-w-5xl">
             <div className="neo-panel neo-pressable px-6 py-8 text-center">
               <p className="text-xs font-black uppercase tracking-[0.55em] text-muted-foreground">
-                Trusted by teams shipping loyalty, commerce, and gaming ecosystems
+                Target ecosystems: where Gami deploys first
               </p>
               <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
                 {[
-                  { src: "https://html.tailus.io/blocks/customers/nvidia.svg", alt: "Nvidia" },
-                  { src: "https://html.tailus.io/blocks/customers/column.svg", alt: "Column" },
-                  { src: "https://html.tailus.io/blocks/customers/github.svg", alt: "GitHub" },
-                  { src: "https://html.tailus.io/blocks/customers/nike.svg", alt: "Nike" },
-                  { src: "https://html.tailus.io/blocks/customers/lemonsqueezy.svg", alt: "Lemon Squeezy" },
-                  { src: "https://html.tailus.io/blocks/customers/laravel.svg", alt: "Laravel" },
-                  { src: "https://html.tailus.io/blocks/customers/lilly.svg", alt: "Lilly" },
-                  { src: "https://html.tailus.io/blocks/customers/openai.svg", alt: "OpenAI" },
-                ].map((logo) => (
+                  { label: "Commerce", detail: "Shopify + Stripe" },
+                  { label: "Loyalty", detail: "Salesforce + Braze" },
+                  { label: "Gaming", detail: "Epic + Steam" },
+                  { label: "Fan Clubs", detail: "Discord + Hypemoon" },
+                  { label: "Fintech", detail: "Neobanks + Card" },
+                  { label: "DeFi", detail: "Layer2s + Wallets" },
+                  { label: "Sports", detail: "Leagues + Venues" },
+                  { label: "Media", detail: "Streaming + OTT" },
+                ].map((ecosystem) => (
                   <div
-                    key={logo.alt}
-                    className="neo-border flex h-16 items-center justify-center rounded-2xl bg-white/90 p-3 dark:bg-foreground/5"
+                    key={ecosystem.label}
+                    className="neo-border flex h-24 flex-col items-center justify-center rounded-2xl bg-white/90 p-3 text-center text-sm font-semibold text-foreground/80 dark:bg-foreground/5"
                   >
-                    <img
-                      className="mx-auto max-h-6 w-auto object-contain dark:invert"
-                      src={logo.src}
-                      alt={`${logo.alt} Logo`}
-                    />
+                    <span className="text-base font-black text-foreground">{ecosystem.label}</span>
+                    <span className="mt-2 text-[0.7rem] uppercase tracking-[0.3em] text-muted-foreground">
+                      {ecosystem.detail}
+                    </span>
                   </div>
                 ))}
               </div>
