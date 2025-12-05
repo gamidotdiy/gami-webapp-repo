@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WaitlistSignup {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  business  String
+  wallet    String?
+  status    SignupStatus @default(PENDING)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([email])
+  @@index([createdAt])
+  @@map("waitlist_signups")
+}
+
+model PlatformTest {
+  id          String   @id @default(cuid())
+  email       String
+  testType    String
+  details     String?
+  completedAt DateTime @default(now())
+  
+  @@index([email])
+  @@index([completedAt])
+  @@map("platform_tests")
+}
+
+enum SignupStatus {
+  PENDING
+  CONTACTED
+  ONBOARDED
+  REJECTED
+}

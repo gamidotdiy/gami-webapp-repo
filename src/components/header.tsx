@@ -41,7 +41,7 @@ export const HeroHeader = () => {
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
               <Link
-                href="/home"
+                href="/"
                 aria-label="home"
                 className="flex items-center gap-3 text-sm font-black uppercase tracking-[0.35em]"
               >

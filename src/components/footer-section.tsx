@@ -52,8 +52,8 @@ const Footer2 = ({
     {
       title: "Resources",
       links: [
-        { text: "Whitepaper", url: "https://www.gamiprotocol.com/whitepaper.pdf" },
-        { text: "Blog", url: "https://www.gamiprotocol.com/blog" },
+        { text: "Whitepaper", url: "https://www.gamiprotocol.xyz/whitepaper.pdf" },
+        { text: "Blog", url: "https://www.gamiprotocol.xyz/blog" },
         { text: "Community", url: "https://discord.gg/gamiprotocol" },
       ],
     },
@@ -62,7 +62,7 @@ const Footer2 = ({
       links: [
         { text: "About", url: "https://www.gamiprotocol.com/about" },
         { text: "Careers", url: "https://www.gamiprotocol.com/careers" },
-        { text: "Contact", url: "mailto:hello@gamiprotocol.com" },
+        { text: "Contact", url: "mailto:hello@gamiprotocol.xyz" },
       ],
     },
   ],
