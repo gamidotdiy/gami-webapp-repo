@@ -1,3 +1,12 @@
+https://gami.diy
+https://x.com/gamidotdiy
+App : https://app.gamiprotocol.xyz/
+Contract : not yet launched
+
+
+Gami Protocol is building the gamification layer of the internet—an SDK and Layer 2 that lets any platform reward users with XP, tokens, and NFTs. We make loyalty systems interoperable, on-chain, and user-owned across Web2 and Web3.
+
+
 # Gami Agent Dashboard
 
 This project is a Next.js 15 application that powers the Supervisor, Quest, Economy and Security agent dashboards for the Gami Protocol. It now ships with Firebase Authentication for email/password, Google, and GitHub login flows plus a built-in fake email generator for quickly testing sign-up.
