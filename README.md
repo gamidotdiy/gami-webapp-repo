@@ -1,8 +1,6 @@
 https://gami.diy
 https://x.com/gamidotdiy
 App : https://app.gamiprotocol.xyz/
-Contract : 93Y3wiyRgL5qdfpXtA26fe694LKGmq2wFLcgPyoapump
-
 
 Gami Protocol is building the gamification layer of the internet—an SDK and Layer 2 that lets any platform reward users with XP, tokens, and NFTs. We make loyalty systems interoperable, on-chain, and user-owned across Web2 and Web3.
 
